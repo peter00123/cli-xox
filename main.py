@@ -1,47 +1,53 @@
 
 
 from game import start
+withs = ["1","2"]
 
 while (exit != True):
     for i in range(3):
         print(" ")
-    size = int(input("choose the number of box "))
-    for i in range(3):
-        print("  ")
+    print("         welcome")
+    print(" ")
+    print("         enter ")
+    print("         1.play with pc ")
+    print("         2.play with friend ")
+    pwith = str(input("          "))
+    
+    if pwith in withs:
+        exit = True
 
-    if(size == 0):
-        print("enter _e_ for exiting")
-        print("you have chosen the easy level")
+    if(pwith == "e"):
+        print("         you have exited the game")
         for i in range(3):
             print(" ")
-        exit = True
-    elif(size == 1):
-        print("enter _e_ for exiting")
-        print("you have chosen the medium level")
-        for i in range(3):
-            print(" ")
-        exit = True
-    elif(size == 2):
-        print("enter _e_ for exiting")
-        print("you have chosen the hard level")
-        for i in range(3):
-            print(" ")
-        exit = True
-    elif(size == 3):
-        print("enter _e_ for exiting")
-        print("you have chosen the hard level")
-        for i in range(3):
-            print(" ")
-        exit = True
-    elif(size == "e"):
-        print("you have exited the game")
-        for i in range(3):
-            print(" ")
-        exit = True
         exit()
+    else:
+        print("          enter e to exit the game")
 
-print(size)
+    
+exit = False
+while (exit != True):
+    sizes = ["5","7"]
+    for i in range(3):
+        print(" ")
+    print("         welcome")
+    size = str(input("         choose the number of box (3,5) "))
+    
+    if size in sizes:
+        exit = True
+
+    if(size == "e"):
+        print("         you have exited the game")
+        for i in range(3):
+            print(" ")
+        exit()
+    else:
+        print("          enter e to exit the game")
+        
+size = int(size)
+#print(size)
 
 
+print(f"            playing with {pwith} in {size} table")
 
-start(size)
+start(size,pwith)
