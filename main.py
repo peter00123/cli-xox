@@ -27,7 +27,7 @@ while (exit != True):
     
 exit = False
 while (exit != True):
-    sizes = ["5","7"]
+    sizes = ["3","5","7"]
     for i in range(3):
         print(" ")
     print("         welcome")

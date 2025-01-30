@@ -22,7 +22,7 @@ def end(winr):
     print(f"            winner is {winr}")
     exit()
 
-def bot(matrix,row,col,count,used,player,size):
+def bot(matrix,row,col,count,used,player,size,pwith):
 
     disaply(matrix)
 
@@ -34,7 +34,10 @@ def bot(matrix,row,col,count,used,player,size):
 
     else:
         print("         bot is thinking")
-        botturn(size)
+        
+        
+        insert = botturn(size)
+        print(insert)
 
     if(insert == "e"):
         print("         game ended")
@@ -66,18 +69,18 @@ def bot(matrix,row,col,count,used,player,size):
            # print(val)
 
 
-            checker(matrix,row,col,count,used,player,size)
+            checker(matrix,row,col,count,used,player,size,pwith)
     except:
         
         print(" ")
         print("         invalid input")
         print("         enter e to exit")
-        checker(matrix,row,col,count,used,player,size)
+        checker(matrix,row,col,count,used,player,size,pwith)
 
 
 
 
-def inserter(matrix,row,col,count,used,player,size):
+def inserter(matrix,row,col,count,used,player,size,pwith):
 
     disaply(matrix)
 
@@ -103,7 +106,7 @@ def inserter(matrix,row,col,count,used,player,size):
         val = matrix[a-1][b-1]
         if val in used:
             print("         already used")
-            inserter(matrix,row,col,count,used,player,size)
+            inserter(matrix,row,col,count,used,player,size,pwith)
         else:
 
             used.append(val)
@@ -120,17 +123,17 @@ def inserter(matrix,row,col,count,used,player,size):
            # print(val)
 
 
-            checker(matrix,row,col,count,used,player,size)
+            checker(matrix,row,col,count,used,player,size,pwith)
     except:
         
         print(" ")
         print("         invalid input")
         print("         enter e to exit")
-        checker(matrix,row,col,count,used,player,size)
+        checker(matrix,row,col,count,used,player,size,pwith)
 
 
 
-def checker(matrix,row,col,count,used,player,size): 
+def checker(matrix,row,col,count,used,player,size,pwith): 
     # Check rows
     for row in matrix:
         if len(set(row)) == 1 and row[0] != " ":
@@ -164,8 +167,12 @@ def checker(matrix,row,col,count,used,player,size):
         end(winr)
 
 
-    
-    inserter(matrix,row,col,count,used,player,size)
+    if(pwith =="2"):
+
+        inserter(matrix,row,col,count,used,player,size,pwith)
+    else:
+        print("         you are x")
+        bot(matrix,row,col,count,used,player,size,pwith)
 
 def start(size,pwith):
     size-1
@@ -206,10 +213,10 @@ def start(size,pwith):
     
     if(pwith =="2"):
 
-        inserter(matrix,row,col,count,used,player,size)
+        inserter(matrix,row,col,count,used,player,size,pwith)
     else:
         print("         you are x")
-        bot(matrix,row,col,count,used,player,size)
+        bot(matrix,row,col,count,used,player,size,pwith)
      
     
 
