@@ -1,4 +1,16 @@
-def check_diagonals(matrix):
+def iteration(matrix,row,col,count):
+    matrix[1][2]="x"
+        
+
+    if(count==1):
+        exit()
+    
+    count+1
+    check_diagonals(matrix,row,col,count)
+
+
+
+def check_diagonals(matrix,row,col,count):
     # Check rows
     for row in matrix:
         if len(set(row)) == 1 and row[0] != " ":
@@ -19,29 +31,41 @@ def check_diagonals(matrix):
     anti_diag = [matrix[i][2-i] for i in range(3)]
     if len(set(anti_diag)) == 1 and anti_diag[0] != " ":
         print(f"Winner: {anti_diag[0]} in anti diagonal")
+
+    for row in matrix:
+        print(row)
     
-    return "No winner"
+    iteration(matrix,row,col,count)
 
 def start(difficualti):
     print("you are X ")
     print("computer is O")
     print("enter the number, where u want to place the X")
-    print(" ")
-    print(" ")
+    
+    print(difficualti)
 
-    #matrix = [[(i+1)*10 + (j+1) for j in range(3)] for i in range(3)]
 
-    # Print the matrix
-    #for row in matrix:
-    #    print(row)
+    matrix = []
+    for i in range(difficualti):  # Outer loop for rows
+        row = []
+        for j in range(difficualti):  # Inner loop for columns
+            row.append(str((i+1)*10 + (j+1)))  # Compute value
+        matrix.append(row)  # Append row to matrix
 
-    matrix = [
+    #print(matrix)
+
+    """matrix = [[(i+1)*10 + (j+1) for j in range(3)] for i in range(3)]"""
+    
+    
+
+    """matrix = [
         [11,12,13],
         [11,22,23],
         [11,32,33]
-    ]
-    
-    check_diagonals(matrix)
+    ]"""
+    col = row
+    count = 0
+    check_diagonals(matrix,row,col,count)
     
 
 
